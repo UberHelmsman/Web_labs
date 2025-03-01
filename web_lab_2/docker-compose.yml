@@ -6,5 +6,5 @@ services:
         - "8080:80"
     volumes:
         - ./code:/code
-        - ./site.conf:etc/ngnix/conf.d/site.conf
+        - .E:/Documents/GitHub/Web_labs/web_lab_2/site.conf:etc/ngnix/conf.d/site.conf
       
