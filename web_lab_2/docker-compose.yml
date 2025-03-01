@@ -1,4 +1,7 @@
-web:
- image: nginx:latest
- ports:
- - "8080:80"
+services:
+
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+      
