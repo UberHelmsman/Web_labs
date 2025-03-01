@@ -13,9 +13,6 @@ services:
   
   php:
     image: php:8-fpm
-
-    ports:
-      - "8080:80"
     
     volumes:
       - ./code:/code
