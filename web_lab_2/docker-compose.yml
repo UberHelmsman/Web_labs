@@ -15,4 +15,4 @@ services:
     image: php:8-fpm
     
     volumes:
-      - .code:/code
+      - ./code:/code
