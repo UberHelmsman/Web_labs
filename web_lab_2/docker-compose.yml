@@ -2,12 +2,12 @@ version: '3.8'
 services:
 
   web:
-    image: nginx:mainline-perl
+    image: nginx:latest
     ports:
         - "8080:80"
     volumes:
         - ./code:/code
-        - ./site.conf:/etc/ngnix/conf.d/default.conf
+        - ./site.conf:/etc/ngnix/conf.d/site.conf
     links:
         - php
   
