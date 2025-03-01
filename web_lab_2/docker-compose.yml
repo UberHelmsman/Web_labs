@@ -7,7 +7,7 @@ services:
         - "8080:80"
     volumes:
         - ./code:/code
-        - ./site.conf:/etc/ngnix/nginx.conf
+        - ./site.conf:/etc/nginx/nginx.conf
     links:
         - php
   
