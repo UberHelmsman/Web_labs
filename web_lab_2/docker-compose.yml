@@ -7,4 +7,9 @@ services:
     volumes:
         - ./code:/code
         - .E:/Documents/GitHub/Web_labs/web_lab_2/site.conf:etc/ngnix/conf.d/site.conf
+    links:
+        - php
+  
+  php:
+    image: php:8-fpm
       
