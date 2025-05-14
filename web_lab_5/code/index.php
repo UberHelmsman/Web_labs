@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>not_avito</title>
+    <title>dfgdfgkldfhkl</title>
 </head>
 <body>
     <form action="save.php" method="post">
@@ -52,7 +52,7 @@
             <tr>
                 <?php
                 if ($op_d = opendir('categories/')) {
-                    while (($ctg = readdir($op_d)) !== false) {
+                    while (($ctg = readdir(dir_handle: $op_d)) !== false) {
                         if ($ctg != "." && $ctg != ".." && is_dir('categories/' . $ctg)) {
                             if ($op_subd = opendir('categories/' . $ctg . '/')) {
                                 while (($file = readdir($op_subd)) !== false) {
@@ -60,7 +60,7 @@
                                         
                                         $title = htmlspecialchars(pathinfo($file, PATHINFO_FILENAME));
                                         $category = htmlspecialchars(ucfirst($ctg));
-                                        $description = htmlspecialchars(file_get_contents('categories/' . $ctg . '/' . $file));
+                                        $description = htmlspecialchars(file_get_contents(filename: 'categories/' . $ctg . '/' . $file));
 
                                         echo '<tr>';
                                         echo    '<td>' . $category . '</td>';      # Category
