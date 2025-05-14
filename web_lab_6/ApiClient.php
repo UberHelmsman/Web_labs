@@ -40,6 +40,18 @@ class ApiClient {
         $error = curl_error($ch);
         curl_close($ch);
 
+
+        // немного другая обработка ошибок для бесперебойной работы программы
+        $error_message = "";
+        if ($error) {
+            $error_message = $error_message . "cURL Error: $error";
+        }
+
+        if ($httpCode >= 400) {
+            $error_message = $error_message . "API Error: HTTP $httpCode";
+        }
+        
+        $error_message = $error_message . PHP_EOL;
         // Логгирование
         $logDir = 'logs';
         $logFile = $logDir. '/log.txt';
@@ -49,36 +61,34 @@ class ApiClient {
             mkdir($logDir, 0755, true);
         }
 
-        $logMessage = "Request: $method $url - Code: $httpCode" . PHP_EOL;
+        $logMessage = PHP_EOL . PHP_EOL . "Request: $method $url - Code: $httpCode" . PHP_EOL;
 
         file_put_contents($logFile, $logMessage, FILE_APPEND | LOCK_EX);
+        if($error_message){
+            file_put_contents($logFile, $error_message, FILE_APPEND | LOCK_EX);
+        }
         // конец логгирования
-
-
-        if ($error) {
-            throw new Exception("cURL Error: $error");
-        }
-
-        if ($httpCode >= 400) {
-            throw new Exception("API Error: HTTP $httpCode");
-        }
 
         return json_decode($response, true);
     }
 
     public function get($endpoint) { // базовый GET запрос
+        echo "GET запрос";
         return $this->sendRequest('GET', $endpoint);
     }
 
     public function post($endpoint, $data) { // базовый POST запрос
+        echo "post запрос";
         return $this->sendRequest('POST', $endpoint, $data);
     }
 
     public function put($endpoint, $data) { // базовый PUT запрос
+        echo "put запрос";
         return $this->sendRequest('PUT', $endpoint, $data);
     }
 
     public function delete($endpoint) { // базовый DELETE запрос
+        echo "delete запрос";
         return $this->sendRequest('DELETE', $endpoint);
     }
 }

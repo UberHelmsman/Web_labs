@@ -1,0 +1,16 @@
+
+
+Request: GET https://example.com/test-get - Code: 404
+API Error: HTTP 404
+
+
+Request: POST https://example.com/test-post - Code: 403
+API Error: HTTP 403
+
+
+Request: PUT https://example.com/test-put - Code: 501
+API Error: HTTP 501
+
+
+Request: DELETE https://example.com/test-delete - Code: 501
+API Error: HTTP 501
