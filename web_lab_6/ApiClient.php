@@ -3,10 +3,12 @@
 class ApiClient {
     private $URL;
     private $authToken;
+    private $headers;
 
     public function __construct($baseUrl, $authToken = null) {
         $this->URL = $baseUrl;
         $this->authToken = $authToken;
+        $this->headers = ['Content-Type: application/json'];
     }
 
     private function sendRequest($method, $endpoint, $data = null) {
