@@ -1,17 +1,14 @@
-version: '3.8'
-
 services:
   web:
     image: nginx:latest
     ports:
-      - "8080:80"
+        - "8080:80"
     volumes:
       - ./code:/code
       - ./site.conf:/etc/nginx/conf.d/site.conf
-    depends_on:
+    links:
       - php
-      
   php:
-    image: php:8.4-rc-fpm
+    image: php:8.4-fpm
     volumes:
       - ./code:/code
