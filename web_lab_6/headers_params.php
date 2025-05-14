@@ -1,6 +1,6 @@
 <?php
 
-// GET с кастомными заголовками
+// GET запрос с кастомными заголовками
 function GetRequestsCustomHeaders($url, $headers) {
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -10,8 +10,8 @@ function GetRequestsCustomHeaders($url, $headers) {
     echo "GET custom headers: " . $response . "\n";
 }
 
-// JSON в теле запроса
-function PostJsonData($url, $data) {
+// Функция для отправки JSON данных в теле запроса
+function PostJsonData($url, $data) { // json данные передаются в функцию
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
@@ -22,7 +22,7 @@ function PostJsonData($url, $data) {
     echo "json in request body: " . json_decode($response, true) . "\n";
 }
 
-// GET + URL
+// Функция отправки запроса с параметрами URL-запроса
 function GetRequestUrlParams($url, $params) {
     $query = http_build_query($params);
     $fullUrl = $url . '?' . $query;

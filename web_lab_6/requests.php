@@ -1,5 +1,5 @@
 <?php
-// GET запросик 
+// базовый GET запрос
 function EchoBasicGetRequest(){
     $ch = curl_init('https://jsonplaceholder.typicode.com/posts/1'); // это там французский что ли или лорем ипсум какой то
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -9,7 +9,7 @@ function EchoBasicGetRequest(){
 }
 
 
-// POST запрос
+// базовый POST запрос
 function EchoBasicPostRequest(){
     $ch = curl_init('https://jsonplaceholder.typicode.com/posts');
     $stuff = [
@@ -27,7 +27,7 @@ function EchoBasicPostRequest(){
 }
 
 
-// PUT запрос
+// базовый PUT запрос
 function EchoBasicPutRequest(){
     $ch = curl_init('https://jsonplaceholder.typicode.com/posts/1');
     $stuff = [
@@ -44,7 +44,7 @@ function EchoBasicPutRequest(){
 }
 
 
-// DELETE запрос
+// базовый DELETE запрос
 function EchoBasicDeleteRequest(){
     $ch = curl_init('https://jsonplaceholder.typicode.com/posts/1');
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
